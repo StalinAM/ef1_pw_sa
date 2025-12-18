@@ -56,7 +56,7 @@ export default {
       }
       if (this.puntos >= 10) {
         this.resultado = 'victoria'
-        this.cambiarResultado('victoria')
+        this.cambiarResultado('victoria', this.puntos)
         this.finJuego = true
         console.log('ganaste')
       }
