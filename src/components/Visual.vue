@@ -50,11 +50,13 @@ export default {
       this.pokemons = listaInfoPokemon
       if (this.intento === 5 && this.puntos < 10) {
         this.resultado = 'derrota'
+        this.cambiarResultado('derrota')
         console.log('perdio')
         this.finJuego = true
       }
       if (this.puntos >= 10) {
         this.resultado = 'victoria'
+        this.cambiarResultado('victoria')
         this.finJuego = true
         console.log('ganaste')
       }
@@ -85,6 +87,9 @@ export default {
   },
   components: {
     Card
+  },
+  props: {
+    cambiarResultado: Function
   }
 }
 </script>

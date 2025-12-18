@@ -1,13 +1,13 @@
 <template>
   <main>
-    <Visual :puntos="puntos" />
+    <Visual :puntos="puntos" :cambiarResultado="cambiarResultado" />
     <p>{{ puntos }}</p>
-    <div class="mensaje-win">
+    <div v-if="resultado === 'derrota'" class="mensaje-win">
       <p>Has utilizado tus 5 intentos</p>
       <p>El juego ha termindo, intentalo nuevamente</p>
       <button>Nuevo Juego</button>
     </div>
-    <div class="mensaje-lose">
+    <div v-if="resultado === 'victoria'" class="mensaje-lose">
       <p>
         Puntaje: #<span>{{ puntos }}</span>
       </p>
@@ -20,7 +20,14 @@
 import Visual from '@/components/Visual.vue'
 export default {
   data() {
-    return {}
+    return {
+      resultado: null
+    }
+  },
+  methods: {
+    cambiarResultado(texto) {
+      this.resultado = texto
+    }
   },
   components: {
     Visual
